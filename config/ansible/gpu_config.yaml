@@ -1,0 +1,41 @@
+---
+- hosts: gpu
+  tasks:
+
+  - name: Setting APT to ipv4
+    copy:
+      dest: "/etc/apt/apt.conf.d/1000-force-ipv4-transport"
+      content: |
+        Acquire::ForceIPv4 "true";
+
+  - name: APT Source Files
+    copy:
+      src: /scratch/ansible/compute/etc/apt/sources.list
+      dest: /etc/apt/
+      owner: root
+      group: root
+      mode: '0644'
+
+  - name: resolv.conf
+    copy:
+      src: /scratch/ansible/compute/etc/resolv.conf
+      dest: /etc/
+      owner: root
+      group: root
+      mode: '0644'
+
+  - name: slurm
+    copy:
+      src: /scratch/ansible/compute/etc/pam.d/slurm
+      dest: /etc/pam.d/
+      owner: root
+      group: root
+      mode: '0644'
+
+  - name: sshd
+    copy:
+      src: /scratch/ansible/compute/etc/pam.d/sshd
+      dest: /etc/pam.d/
+      owner: root
+      group: root
+      mode: '0644'

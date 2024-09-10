@@ -1,0 +1,11 @@
+---
+- hosts: gpu
+  tasks:
+
+  - name: slurm.conf
+    copy:
+      src: /scratch/ansible/slurm/etc/slurm/slurm.conf
+      dest: /etc/slurm/
+      owner: root
+      group: root
+      mode: '0644'

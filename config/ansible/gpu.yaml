@@ -1,0 +1,4 @@
+---
+- import_playbook: gpu_config.yaml
+- import_playbook: gpu_packages.yaml
+- import_playbook: slurm.conf.gpu.yaml

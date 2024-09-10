@@ -1,0 +1,4 @@
+---
+- import_playbook: compute_config.yaml
+- import_playbook: compute_packages.yaml
+- import_playbook: slurm.conf.compute.yaml
